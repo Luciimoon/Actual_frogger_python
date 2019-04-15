@@ -9,7 +9,7 @@ pygame.init()
 screen = pygame.display.set_mode((800, 600))
 
 # Every 100 milliseconds check if a key is still pressed down
-# Allows user to hold down the key to mov
+# Allows user to hold down the key to move
 pygame.key.set_repeat(10, 10)
 
 # create a person at position (40,40)
@@ -62,10 +62,14 @@ while True:
 
             if event.key == K_LEFT:
                 guy.moveLeft()
-                if guy.collide(theWall or theWall2):
+                if guy.collide(theWall):
+                    guy.moveRight()
+                elif guy.collide(theWall2):
                     guy.moveRight()
 
             elif event.key == K_RIGHT:
                 guy.moveRight()
-                if guy.collide(theWall or theWall2):
+                if guy.collide(theWall):
+                    guy.moveLeft()
+                elif guy.collide(theWall2):
                     guy.moveLeft()
