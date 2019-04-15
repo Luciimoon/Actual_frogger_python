@@ -3,7 +3,7 @@ from pygame.locals import *
 
 
 class Wall2:
-    # set all class variables in the constructor
+    # set all class variables in tonstructor
     def __init__(self, newX, newY):
         self.x = 750
         self.y = 550
