@@ -9,7 +9,7 @@ pygame.init()
 screen = pygame.display.set_mode((800, 600))
 
 # Every 100 milliseconds check if a key is still pressed down
-# Allows user to hold down the key to move
+# Allows user to hold down the key to mov
 pygame.key.set_repeat(10, 10)
 
 # create a person at position (40,40)
