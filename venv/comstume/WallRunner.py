@@ -2,18 +2,20 @@ import pygame, sys
 from pygame.locals import*
 from Person import *
 from Wall import *
+from Wall2 import *
 
 # Creates a screen that is 800 x 600
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
 
 # Every 100 milliseconds check if a key is still pressed down
-# Allows user to hold down the key to mov
+# Allows user to hold down the key to move
 pygame.key.set_repeat(10, 10)
 
 # create a person at position (40,40)
 guy = Person(350, 550)
 theWall = Wall(150, 150)
+theWall2 = Wall2(0,150)
 
 # A list that keeps track of the areas of screen that have changed
 changedRecs = []
@@ -22,12 +24,14 @@ changedRecs = []
 WHITE = (55, 255, 255)
 screen.fill(WHITE)
 theWall.draw(screen)
+theWall2.draw(screen)
 pygame.display.update()
 
 while True:
     # draw the scene
     screen.fill(WHITE)
     theWall.draw(screen)
+    theWall2.draw(screen)
     guy.draw(screen)
 
     # adds the current position of guy to the areas that have been changed
@@ -58,10 +62,10 @@ while True:
 
             if event.key == K_LEFT:
                 guy.moveLeft()
-                if guy.collide(theWall):
+                if guy.collide(theWall or theWall2):
                     guy.moveRight()
 
             elif event.key == K_RIGHT:
                 guy.moveRight()
-                if guy.collide(theWall):
+                if guy.collide(theWall or theWall2):
                     guy.moveLeft()
