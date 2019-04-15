@@ -8,7 +8,7 @@ class Person:
         self.x = newX
         self.y = newY
 
-        """  Add images to the list of images  """
+        """  Add images to the lf images  """
         self.images = [pygame.image.load("dude.gif").convert(),
                        pygame.image.load("dudeU.gif").convert(),
                        pygame.image.load("dudeR.gif").convert(),
