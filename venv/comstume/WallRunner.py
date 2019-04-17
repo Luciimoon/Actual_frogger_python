@@ -10,7 +10,7 @@ screen = pygame.display.set_mode((800, 600))
 
 # Every 100 milliseconds check if a key is still pressed down
 # Allows user to hold down the key to move
-pygame.key.set_repeat(10, 10)
+pygame.key.set_repeat(20, 20)
 
 # create a person at position (40,40)
 guy = Person(350, 550)
@@ -21,7 +21,7 @@ theWall2 = Wall2(0,150)
 changedRecs = []
 
 # draw the starting screen
-WHITE = (55, 255, 255)
+WHITE = (139,90,43)
 screen.fill(WHITE)
 theWall.draw(screen)
 theWall2.draw(screen)

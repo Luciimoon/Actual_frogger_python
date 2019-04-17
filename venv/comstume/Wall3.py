@@ -2,10 +2,10 @@ import pygame
 from pygame.locals import *
 
 
-class Wall2:
-    # set all class variables in tonstructor
+class Wall3:
+    # set all class variables in the constructor
     def __init__(self, newX, newY):
-        self.x = 800
+        self.x = -50
         self.y = 550
         self.img = pygame.image.load("wall.gif")
 

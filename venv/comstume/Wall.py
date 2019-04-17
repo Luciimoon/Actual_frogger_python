@@ -5,7 +5,7 @@ from pygame.locals import *
 class Wall:
     # set all class variables in the constructor
     def __init__(self, newX, newY):
-        self.x = 0
+        self.x = -50
         self.y = 550
         self.img = pygame.image.load("wall.gif")
 
