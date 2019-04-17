@@ -5,9 +5,9 @@ from pygame.locals import *
 class Wall2:
     # set all class variables in tonstructor
     def __init__(self, newX, newY):
-        self.x = 800
+        self.x = 750
         self.y = 550
-        self.img = pygame.image.load("wall.gif")
+        self.img = pygame.image.load("Anvil(1).gif")
 
 
     # draw your image
