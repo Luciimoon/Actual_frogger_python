@@ -3,6 +3,7 @@ from pygame.locals import*
 from Person import *
 from Wall import *
 from Wall2 import *
+from Anvil import *
 
 # Creates a screen that is 800 x 600
 pygame.init()
@@ -10,21 +11,23 @@ screen = pygame.display.set_mode((800, 600))
 
 # Every 100 milliseconds check if a key is still pressed down
 # Allows user to hold down the key to move
-pygame.key.set_repeat(1, 1)
+pygame.key.set_repeat(50, 50)
 
 # create a person at position (40,40)
 guy = Person(350, 550)
 theWall = Wall(150, 150)
 theWall2 = Wall2(0,150)
+theAnvil = Anvil(50, 500)
 
 # A list that keeps track of the areas of screen that have changed
 changedRecs = []
 
 # draw the starting screen
-WHITE = (0,90,43)
+WHITE = (0,90,40)
 screen.fill(WHITE)
 theWall.draw(screen)
 theWall2.draw(screen)
+theAnvil.draw(screen)
 pygame.display.update()
 
 while True:
@@ -32,6 +35,7 @@ while True:
     screen.fill(WHITE)
     theWall.draw(screen)
     theWall2.draw(screen)
+    theAnvil.draw(screen)
     guy.draw(screen)
 
     # adds the current position of guy to the areas that have been changed
@@ -63,13 +67,15 @@ while True:
             if event.key == K_LEFT:
                 guy.moveLeft()
                 if guy.collide(theWall):
-                    guy.moveRight()
+                    guy = Person(750, 550)
                 elif guy.collide(theWall2):
-                    guy.moveRight()
+                    guy.guy = Person(750, 550)
 
             elif event.key == K_RIGHT:
                 guy.moveRight()
                 if guy.collide(theWall):
-                    guy.moveLeft()
+                    guy = Person(0, 550)
                 elif guy.collide(theWall2):
-                    guy.moveLeft()
+                    guy = Person(0, 550)
+
+            if guy.collide(theAnvil):
