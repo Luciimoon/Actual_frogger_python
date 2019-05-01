@@ -4,16 +4,22 @@ from Person import *
 from Wall import *
 from Wall2 import *
 from Anvil import *
+import random
+import time
 
 # Creates a screen that is 800 x 600
 pygame.init()
 screen = pygame.display.set_mode((800, 600))
 
+display_width = 800
+display_height = 600
+gameDisplay = pygame.display.set_mode((display_width,display_height))
+
 # Every 100 milliseconds check if a key is still pressed down
 # Allows user to hold down the key to move
-pygame.key.set_repeat(50, 50)
+pygame.key.set_repeat(60, 60)
 
-# create a person at position (40,40)
+# create a person at position (40,40
 guy = Person(350, 550)
 theWall = Wall(150, 150)
 theWall2 = Wall2(0,150)
@@ -24,11 +30,24 @@ changedRecs = []
 
 # draw the starting screen
 WHITE = (0,90,40)
+BLACK = (0, 0, 0)
+red = (250, 0, 0)
 screen.fill(WHITE)
 theWall.draw(screen)
 theWall2.draw(screen)
 theAnvil.draw(screen)
 pygame.display.update()
+
+def text_objects(text, font):
+    textSurface = font.render(text, True, red)
+    return textSurface, textSurface.get_rect()
+
+def message_display(text):
+    largeText = pygame.font.Font('freesansbold.ttf',115)
+    TextSurf, TextRect = text_objects(text, largeText)
+    TextRect.center = ((display_width/2),(display_height/2))
+    gameDisplay.blit(TextSurf, TextRect)
+    pygame.display.update()
 
 while True:
     # draw the scene
@@ -79,3 +98,6 @@ while True:
                     guy = Person(0, 550)
 
             if guy.collide(theAnvil):
+                message_display('You Died')
+
+
