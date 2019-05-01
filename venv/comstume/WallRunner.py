@@ -15,6 +15,8 @@ display_width = 800
 display_height = 600
 gameDisplay = pygame.display.set_mode((display_width,display_height))
 
+death = False
+
 # Every 100 milliseconds check if a key is still pressed down
 # Allows user to hold down the key to move
 pygame.key.set_repeat(60, 60)
@@ -52,6 +54,8 @@ def message_display(text):
 while True:
     # draw the scene
     screen.fill(WHITE)
+    if (death == True):
+        screen.fill(BLACK)
     theWall.draw(screen)
     theWall2.draw(screen)
     theAnvil.draw(screen)
@@ -98,6 +102,7 @@ while True:
                     guy = Person(0, 550)
 
             if guy.collide(theAnvil):
+                death = True
                 message_display('You Died')
 
 
