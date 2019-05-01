@@ -1,13 +1,20 @@
 import pygame
 from pygame.locals import *
 import random
-
+import time
 
 class Anvil:
     # set all class variables in the constructor
+
     def __init__(self, newX, newY):
-        self.x = 50
+        self.x = random.randint(0, 750)
         self.y = 550
+        #while (True):
+         #   if self.y <= 550:
+          #      #self.y = self.y + 10
+           #     time.sleep(.1)
+            #else:
+             #   self.y = 0
         self.img = pygame.image.load("Anvil(1).gif")
 
 
@@ -20,10 +27,6 @@ class Anvil:
     def setPos(self, newX, newY):
         self.x = newX
         self.y = newY
-
-        while (True):
-            self.x = random.randint(0, 750)
-
         pass
 
     # DO NOT CHANGE THIS
