@@ -4,6 +4,7 @@ from Person import *
 from Wall import *
 from Wall2 import *
 from Anvil import *
+from background import *
 import random
 import time
 
@@ -22,6 +23,7 @@ pygame.key.set_repeat(60, 60)
 
 # create a person at position (40,40
 guy = Person(350, 550)
+Background = background(350, 275)
 theWall = Wall(150, 150)
 theWall2 = Wall2(0,150)
 theAnvil = Anvil(50, 500)
@@ -29,10 +31,11 @@ theAnvil = Anvil(50, 500)
 # A list that keeps track of the areas of screen that have changed
 changedRecs = []
 # draw the starting screen
-WHITE = (0,90,40)
+WHITE = (0, 0, 0)
 BLACK = (0, 0, 0)
 red = (250, 0, 0)
 screen.fill(WHITE)
+Background.draw(screen)
 theWall.draw(screen)
 theWall2.draw(screen)
 theAnvil.draw(screen)
@@ -48,10 +51,9 @@ def message_display(text):
     TextRect.center = ((display_width/2),(display_height/2))
     gameDisplay.blit(TextSurf, TextRect)
     pygame.display.update()
-
-while death == False:
-    # draw the scene
-    screen.fill(WHITE)
+while True:
+    # draw the scee
+    Background.draw(screen)
     if (death == True):
         screen.fill(BLACK)
     theWall.draw(screen)
@@ -103,5 +105,3 @@ while death == False:
             if guy.collide(theAnvil):
                 death = True
                 message_display('You Died')
-
-
