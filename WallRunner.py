@@ -99,3 +99,4 @@ while True:
                 #endgame dont spoil
 
 
+#https://github.com/brendangregg/GuessingGame/blob/master/src/guess.bash
